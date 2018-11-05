@@ -17,8 +17,11 @@ const propTypes = {
 	item: PropTypes.shape({
 		label: PropTypes.string,
 		topRightText: PropTypes.string,
+		topRightContent: PropTypes.object,
 		bottomLeftText: PropTypes.string,
+		bottomLeftContent: PropTypes.object,
 		bottomRightText: PropTypes.string,
+		bottomRightContent: PropTypes.object
 	}),
 };
 
@@ -37,18 +40,18 @@ const SplitViewListItemContent = ({ item }) => (
 				className="slds-truncate slds-col_bump-left"
 				title={item.topRightText}
 			>
-				{item.topRightText}
+				{item.topRightContent ? item.topRightContent : item.topRightText}
 			</span>
 		</div>
 		<div className="slds-grid slds-wrap">
 			<span className="slds-truncate" title={item.bottomLeftText}>
-				{item.bottomLeftText}
+				{item.bottomLeftContent ? item.bottomLeftContent : item.bottomLeftText}
 			</span>
 			<span
 				className="slds-truncate slds-col_bump-left"
-				title={item.bottomLeftText}
+				title={item.bottomRightText}
 			>
-				{item.bottomRightText}
+				{item.bottomRightContent ? item.bottomRightContent : item.bottomRightText}
 			</span>
 		</div>
 	</div>
